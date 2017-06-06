@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <button ng-click="toggleForm();" ng-class="{'btn-primary': !showForm, 'btn-warning': showForm}" class="btn action-button">{{toggleLabel}}</button>
+    </div>
+</div>
+
+<div class="row frm-event" ng-show="showForm">
+    <div class="col-md-6 col-md-offset-3">
+        <form ng-submit="saveData();">
+            <div class="form-group">
+                <label for="eventName">Event Name:</label>
+                <input ng-model="eventData.eventName" type="text" class="form-control" id="eventName" placeholder="Enter Event Name">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input ng-model="eventData.location" type="text" class="form-control" id="location" placeholder="Enter Location">
+            </div>
+            <div class="form-group">
+                <label for="speaker">Speaker:</label>
+                <input ng-model="eventData.speaker" type="text" class="form-control" id="speaker" placeholder="Enter Speaker">
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+
+<div class="row event-list">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <a href="#" class="list-group-item event-item" ng-repeat="e in events">
+                <span ng-click="removeEvent(e);" class="glyphicon glyphicon-remove pull-right remove-event" aria-hidden="true"></span>
+                <h4 ng-click="updateEvent(e);" class="list-group-item-heading">{{e.eventName}}</h4>
+                <p class="list-group-item-text">Location: {{e.location}}</p>
+                <p class="list-group-item-text">Speaker: {{e.speaker}}</p>
+            </a>
+        </div>
+    </div>
+</div>

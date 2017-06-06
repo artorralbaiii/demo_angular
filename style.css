@@ -1,0 +1,7 @@
+.frm-event, .event-list {
+    margin: 1em 0em;
+}
+
+.event-item {
+    cursor: pointer;
+}
